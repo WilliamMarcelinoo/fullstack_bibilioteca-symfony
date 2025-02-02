@@ -67,6 +67,7 @@ class BookController extends AbstractController
         if ($data['title']) $book->setTitle($data['title']);
         if ($data['author']) $book->setAuthor($data['author']);
         if (isset($data['year'])) $book->setYear($data['year']);
+        if ($data['description']) $book->setDescription($data['description']);
 
         $entityManager->flush();
 

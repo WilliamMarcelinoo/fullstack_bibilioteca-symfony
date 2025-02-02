@@ -13,7 +13,7 @@ Antes de começar, certifique-se de ter instalado:
 ## 📂 **Instalação**
 1. Clone o repositório:
    ```bash
-   git clone https://github.com/WilliamMarcelino/fullstack_bibilioteca-symfony.git
+   git clone https://github.com/WilliamMarcelinoo/fullstack_bibilioteca-symfony.git
    ```
 
 2. Instale as dependências do projeto:
@@ -68,6 +68,7 @@ Antes de começar, certifique-se de ter instalado:
     {
       "title": "Neuromancer",
       "author": "William Gibson",
+      "description": "Considerada a obra precursora do movimento cyberpunk e um clássico da ficção científica moderna.",
       "year": 1954
     }
   ```

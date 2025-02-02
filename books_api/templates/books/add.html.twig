@@ -3,30 +3,28 @@
 {% block title %}Adicionar Livro{% endblock %}
 
 {% block body %}
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <div class="card">
-        <div class="card-header bg-success text-white">
-          <h2 class="mb-0">Adicionar Novo Livro</h2>
-        </div>
-        <div class="card-body">
-          <form action="{{ path('book_add') }}" method="post">
-            <div class="mb-3">
-              <label for="title" class="form-label">Título</label>
-              <input type="text" class="form-control" id="title" name="title" required placeholder="Digite o título do livro">
-            </div>
-            <div class="mb-3">
-              <label for="author" class="form-label">Autor</label>
-              <input type="text" class="form-control" id="author" name="author" required placeholder="Digite o nome do autor">
-            </div>
-            <div class="mb-3">
-              <label for="year" class="form-label">Ano de Publicação</label>
-              <input type="number" class="form-control" id="year" name="year" required placeholder="Ex: 2023">
-            </div>
-            <button type="submit" class="btn btn-primary">Salvar Livro</button>
-          </form>
-        </div>
+  <div class="max-w-md mx-auto bg-white p-6 rounded shadow">
+    <h2 class="text-xl font-bold mb-4">Adicionar Livro</h2>
+    <form action="{{ path('book_add') }}" method="post">
+      <div class="mb-4">
+        <label for="title" class="block text-gray-700">Título</label>
+        <input type="text" id="title" name="title" class="w-full border border-gray-300 p-2 rounded" required>
       </div>
-    </div>
+      <div class="mb-4">
+        <label for="author" class="block text-gray-700">Autor</label>
+        <input type="text" id="author" name="author" class="w-full border border-gray-300 p-2 rounded" required>
+      </div>
+      <div class="mb-4">
+        <label for="year" class="block text-gray-700">Ano</label>
+        <input type="number" id="year" name="year" class="w-full border border-gray-300 p-2 rounded" required>
+      </div>
+      <div class="mb-4">
+        <label for="description" class="block text-gray-700">Descrição</label>
+        <textarea id="description" name="description" class="w-full border border-gray-300 p-2 rounded" rows="4"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-indigo-600 text-white p-2 rounded hover:bg-indigo-700">
+        Salvar Livro
+      </button>
+    </form>
   </div>
 {% endblock %}

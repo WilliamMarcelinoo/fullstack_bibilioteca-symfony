@@ -30,6 +30,7 @@ class BookWebController extends AbstractController
             $title = $request->request->get('title');
             $author = $request->request->get('author');
             $year = (int) $request->request->get('year');
+            $description = $request->$request->get('description');
 
             if (!$title || !$author || $year <= 0) {
                 $this->addFlash('error', 'Todos os campos são obrigatórios.');
@@ -40,6 +41,7 @@ class BookWebController extends AbstractController
             $book->setTitle($title);
             $book->setAuthor($author);
             $book->setYear($year);
+            $book->setDescription($description);
 
             $entityManager->persist($book);
             $entityManager->flush();

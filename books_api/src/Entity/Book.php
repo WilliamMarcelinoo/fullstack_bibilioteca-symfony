@@ -22,6 +22,9 @@ class Book
     #[ORM\Column(type: "integer")]
     private ?int $year = null;
 
+    #[ORM\Column(type: "string", length: 255)]
+    private ?string $description = null;
+
     // Getters e Setters
     public function getId(): ?int { return $this->id; }
     
@@ -33,4 +36,7 @@ class Book
 
     public function getYear(): ?int { return $this->year; }
     public function setYear(int $year): self { $this->year = $year; return $this; }
+
+    public function getDescription(): ?string { return $this->description; }
+    public function setDescription(?string $description): self { $this->description = $description; return $this; }
 }

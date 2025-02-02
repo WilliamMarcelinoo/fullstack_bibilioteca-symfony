@@ -19,6 +19,7 @@ class BookController extends AbstractController
         $books = $bookRepository->findAll();
         return $this->json($books);
     }
+    
 
     #[Route('', methods: ['POST'])]
     public function create(Request $request, EntityManagerInterface $entityManager): JsonResponse
@@ -33,12 +34,26 @@ class BookController extends AbstractController
         $book->setTitle($data['title']);
         $book->setAuthor($data['author']);
         $book->setYear($data['year']);
+        $book->setDescription($data['description']);
 
         $entityManager->persist($book);
         $entityManager->flush();
 
         return $this->json($book, 201);
     }
+
+    #[Route('/{id}', name: 'api_books_show', methods: ['GET'])]
+    public function show(int $id, BookRepository $bookRepository): JsonResponse
+    {
+        $book = $bookRepository->find($id);
+
+        if (!$book) {
+            return $this->json(['error' => 'Livro não encontrado'], 404);
+        }  
+
+        return $this->json($book);
+    }
+
 
     #[Route('/{id}', methods: ['PUT'])]
     public function update($id, Request $request, BookRepository $bookRepository, EntityManagerInterface $entityManager): JsonResponse
